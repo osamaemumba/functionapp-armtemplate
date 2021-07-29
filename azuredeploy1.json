@@ -86,7 +86,7 @@
                   "[resourceId('Microsoft.Web/sites/', variables('appInsightsName'))]"
                 ],
                 "properties": {
-                  "RepoUrl": "https://github.com/osamaemumba/functionapp-armtemplate.git",
+                  "RepoUrl": "https://github.com/osamaemumba/functionapp-armtemplate",
                   "branch": "main",
                   "IsManualIntegration": true
                 }
