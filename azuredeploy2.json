@@ -47,7 +47,7 @@
         "type": "Microsoft.Web/sites",
         "name": "[variables('functionAppName')]",
         "location": "[variables('location')]",
-        "kind": "functionapp",
+        "kind": "functionapp,linux",
         "dependsOn": [
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
             "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
@@ -70,10 +70,6 @@
                     {
                         "name": "FUNCTIONS_EXTENSION_VERSION",
                         "value": "~3"
-                    },
-                    {
-                        "name": "Project",
-                        "value": "src"
                     }
                 ]
             }
