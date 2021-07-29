@@ -86,9 +86,9 @@
                   "[resourceId('Microsoft.Web/sites/', parameters('appName'))]"
                 ],
                 "properties": {
-                  "RepoUrl": "[parameters('sourceCodeRepositoryURL')]",
-                  "branch": "[parameters('sourceCodeBranch')]",
-                  "IsManualIntegration": "[parameters('sourceCodeManualIntegration')]"
+                  "RepoUrl": "https://github.com/osamaemumba/functionapp-armtemplate",
+                  "branch": "main",
+                  "IsManualIntegration": true
                 }
            }
         ]
