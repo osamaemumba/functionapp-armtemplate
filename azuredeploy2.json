@@ -97,7 +97,7 @@
           ]
         },
         "files": {
-          "run.csx": "\ndef main(req: func.HttpRequest) -> func.HttpResponse:\n    logging.info('Python HTTP trigger function processed a request.')\n\n    name = req.params.get('name')\n    if not name:\n        try:\n            req_body = req.get_json()\n        except ValueError:\n            pass\n        else:\n            name = req_body.get('name')\n\n    if name:\n        return func.HttpResponse(f\"Hello {name}!\")\n    else:\n        return func.HttpResponse(\n            \"Please pass a name on the query string or in the request body\",\n            status_code=400\n        )\n"
+          "__init__.py": "\ndef main(req: func.HttpRequest) -> func.HttpResponse:\n    logging.info('Python HTTP trigger function processed a request.')\n\n    name = req.params.get('name')\n    if not name:\n        try:\n            req_body = req.get_json()\n        except ValueError:\n            pass\n        else:\n            name = req_body.get('name')\n\n    if name:\n        return func.HttpResponse(f\"Hello {name}!\")\n    else:\n        return func.HttpResponse(\n            \"Please pass a name on the query string or in the request body\",\n            status_code=400\n        )\n"
         }
       },
       "dependsOn": [
