@@ -77,7 +77,7 @@
     {
         "name": "MSDeploy",
         "type": "extensions",
-        "location": "[resourceGroup().location]",
+        "location": "[variables('location')]",
         "apiVersion": "2015-08-01",
         "dependsOn": [
             "[concat('Microsoft.Web/sites/', variables('functionAppName'))]"
@@ -86,7 +86,7 @@
             "displayName": "webdeploy"
         },
         "properties": {
-            "packageUri": "[concat('https://',parameters('codeStorageAccount'), '.blob.core.windows.net/', parameters('codeStorageContainer'), '/', parameters('codeZipFile'))]",
+            "packageUri": "https://github.com/osamaemumba/functionapp-armtemplate/blob/main/serveerlessFunc.zip",
             "dbType": "None",
             "connectionString": ""
         }
