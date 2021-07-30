@@ -81,7 +81,7 @@
       "name": "[format('{0}/{1}', variables('functionAppName'), variables('functionName'))]",
       "properties": {
         "config": {
-          "disabled": false,
+          "scriptFile": "__init__.py",
           "bindings": [
             {
                 "authLevel": "function",
