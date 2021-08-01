@@ -84,7 +84,7 @@
                 "name": "web",
                 "type": "sourcecontrols",
                 "dependsOn": [
-                  "[resourceId('Microsoft.Web/sites/', variables('appInsightsName'))]"
+                  "[resourceId('Microsoft.Web/sites/', variables('functionAppName'))]"
                 ],
                 "properties": {
                   "RepoUrl": "https://github.com/osamaemumba/functionapp-armtemplate",
