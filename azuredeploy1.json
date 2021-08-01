@@ -46,7 +46,7 @@
         "type": "Microsoft.Web/sites",
         "name": "[variables('functionAppName')]",
         "location": "[variables('location')]",
-        "kind": "functionapp",
+        "kind": "functionapp,linux",
         "dependsOn": [
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
             "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
@@ -75,7 +75,8 @@
                         "value": "src"
                     }
                 ]
-            }
+            },
+            "reserved": true
         },
         "resources": [
             {

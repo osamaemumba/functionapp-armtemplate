@@ -14,7 +14,8 @@
         "appInsightsName": "[variables('functionAppName')]",
         "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]",
         "location": "[resourceGroup().location]",
-        "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "hostingPlanName": "[variables('functionAppName')]"
       },
   "resources": [ 
     {
@@ -42,16 +43,34 @@
         }
     },
     {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2020-06-01",
+      "name": "[variables('hostingPlanName')]",
+      "location": "[variables('location')]",
+	  "kind": "Linux",
+      "sku": {
+        "name": "Y1",
+        "tier": "Dynamic"
+      },
+      "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "computeMode": "Dynamic",
+		"reserved": true
+      }
+    },
+    {
         "apiVersion": "2015-08-01",
         "type": "Microsoft.Web/sites",
         "name": "[variables('functionAppName')]",
         "location": "[variables('location')]",
         "kind": "functionapp,linux",
         "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
             "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
         ],
         "properties": {
+            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
             "siteConfig": {
                 "appSettings": [
                     {
@@ -91,7 +110,7 @@
                     "displayName": "webdeploy"
                 },
                 "properties": {
-                    "packageUri": "https://github.com/osamaemumba/functionapp-armtemplate/blob/main/serveerlessFunc.zip",
+                    "packageUri": "https://msft2datalake.blob.core.windows.net/funcapp-zipfile/serveerlessFunc.zip?sp=r&st=2021-08-01T12:10:57Z&se=2021-09-01T20:10:57Z&spr=https&sv=2020-08-04&sr=b&sig=I5wIBeXrkRupHx1MirenwqP963vVK0Lb9GSh0lVqiFw%3D",
                     "dbType": "None",
                     "connectionString": ""
                 }

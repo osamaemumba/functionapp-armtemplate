@@ -72,7 +72,8 @@
                         "value": "~3"
                     }
                 ]
-            }
+            },
+            "reserved": true
         }
     },
     {
