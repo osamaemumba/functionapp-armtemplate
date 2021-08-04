@@ -110,7 +110,7 @@
                     "displayName": "webdeploy"
                 },
                 "properties": {
-                    "packageUri": "https://msft2datalake.blob.core.windows.net/funcapp-zipfile/serveerlessFunc.zip?sp=r&st=2021-08-01T12:10:57Z&se=2021-09-01T20:10:57Z&spr=https&sv=2020-08-04&sr=b&sig=I5wIBeXrkRupHx1MirenwqP963vVK0Lb9GSh0lVqiFw%3D",
+                    "packageUri": "<zipfile-SAS-Url>",
                     "dbType": "None",
                     "connectionString": ""
                 }
